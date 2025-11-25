@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Viewer & Downloader</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f0f8ff; }
+        .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .file-card { border: 1px solid #ddd; border-radius: 8px; padding: 15px; background: #f9f9f9; }
+        .file-name { font-weight: bold; margin-bottom: 8px; word-break: break-word; }
+        .file-type { color: #666; font-size: 0.9em; margin-bottom: 10px; }
+        .file-actions { display: flex; gap: 10px; }
+        button { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+        .download-btn { background: #007bff; color: white; }
+        .view-btn { background: #28a745; color: white; }
+        .download-btn:hover { background: #0056b3; }
+        .view-btn:hover { background: #1e7e34; }
+        h1 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>File Library</h1>
+    <p>Click to view or download files from the collection</p>
+    
+    <div class="file-grid" id="fileGrid"></div>
+
+    <script>
+        const files = [
+            { name: 'ansible_tutorial.pdf', type: 'PDF Document' },
+            { name: 'KS - Learning Shell Scripting-PktPub.pdf', type: 'PDF Document' },
+            { name: 'ks- shell scripting - Bash-commands-cheat-sheet-RHCA).pdf', type: 'PDF Document' },
+            { name: 'Kuldeep Didwania - Basic Shell Scripting.txt', type: 'Text Document' },
+            { name: 'Linux-Unix Training _ _ Kuldeep _ _  TCS Pune .pptx', type: 'PowerPoint Presentation' },
+            { name: 'Regular Expressions & sed basics - ks.docx', type: 'Word Document' },
+            { name: 'yaml_tutorial.pdf', type: 'PDF Document' }
+        ];
+
+        function createFileCard(file) {
+            return `
+                <div class="file-card">
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-type">${file.type}</div>
+                    <div class="file-actions">
+                        <button class="view-btn" onclick="viewFile('${file.name}')">View</button>
+                        <button class="download-btn" onclick="downloadFile('${file.name}')">Download</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayFiles() {
+            const fileGrid = document.getElementById('fileGrid');
+            fileGrid.innerHTML = files.map(createFileCard).join('');
+        }
+
+        function viewFile(fileName) {
+            window.open(fileName, '_blank');
+        }
+
+        function downloadFile(fileName) {
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.download = fileName;
+            link.click();
+        }
+
+        displayFiles();
+    </script>
+</body>
+</html>
