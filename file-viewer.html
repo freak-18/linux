@@ -55,12 +55,12 @@
         }
 
         function viewFile(fileName) {
-            window.open(fileName, '_blank');
+            window.open(`./${fileName}`, '_blank');
         }
 
         function downloadFile(fileName) {
             const link = document.createElement('a');
-            link.href = fileName;
+            link.href = `./${fileName}`;
             link.download = fileName;
             link.click();
         }
