@@ -1,0 +1,51 @@
+Suggested Pointers For Linux Administration Skills 
+
+
+1. *Linux Basics & System Structure*
+
+   * An ISO image is used to install Linux as it contains the complete OS setup files.
+   * The */etc* directory stores essential system configuration files.
+
+2. *User & Permission Management*
+
+   * Use passwd <username> to update a user’s password.
+   * Linux differentiates permissions for *user, **group, and **others* on each file.
+
+3. *File & Group Administration*
+
+   * Use chgrp <groupname> <file> to change a file’s group ownership.
+
+4. *System & Resource Monitoring*
+
+   * Use systemctl status <service> to check if a service is active.
+   * vmstat helps analyze CPU, memory usage, and overall system performance.
+
+5. *Scripting, Scheduling & Networking*
+
+   * A simple Bash script like echo $USER displays the logged-in username.
+   * The at command schedules one-time tasks.
+   * nmcli is used to view active network connections and manage network settings
+
+
+----
+
+1. *Linux Installation Settings* – During installation, users configure language, keyboard layout, time zone, disk options, and software packages.
+
+2. *Swap Space Purpose* – Swap acts as overflow memory, improving system stability and performance when RAM is full.
+
+3. *Guided Partitioning* – Linux can auto-allocate partitions such as / (root), /home, and swap using guided partitioning.
+
+4. *Mount Points* – Mount points attach directories (e.g., /home, /var) to the filesystem so they become usable after boot.
+
+5. *Password & Security Policies* – Tools like chage set password expiry, warning days, and inactivity rules for user security.
+
+6. *User & Group Management* – Users can be added to groups using commands like usermod -aG, enabling proper access control.
+
+7. *Identity Files* – /etc/passwd and /etc/group store core user and group information used by Linux for authentication.
+
+8. *Process Management* – Commands like pstree, ps -ejH, fg, bg, jobs, and kill help track and control parent-child processes and jobs.
+
+9. *Bash Scripting Concepts* – Loops (for, while), variables, and automation techniques help process files, logs, and system tasks.
+
+10. *Permissions, Collaboration & Auditing* – File permissions, umask settings, shared directories, and system logs (/var/log) ensure secure collaboration and help administrators track system activity.
+
